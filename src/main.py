@@ -46,9 +46,9 @@ def index():
 
 @app.route('/send_message', methods=['POST'])
 def send_message():
-    if request.method == 'POST':
+    try:
         data = request.form.to_dict()
         bot_message(data)
         return render_template('/thankyou.html')
-    else:
+    except:
         return render_template('/error.html')
