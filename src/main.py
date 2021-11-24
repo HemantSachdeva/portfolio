@@ -17,7 +17,7 @@ import os
 import sys
 
 try:
-    from flask import Flask, redirect, render_template, request
+    from flask import Flask, render_template, request
 except ImportError:
     sys.exit("[!] Flask module not found. Install it by 'pip3 install flask'")
 
