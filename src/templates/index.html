@@ -109,41 +109,14 @@
           <div class="card">
             <div class="card-block">
               <h2>Work</h2>
-              <div class="work-experience">
-                <small class="date">Since 2020</small>
-                <h3 class="h5 date-title">Official Maintainer - <a href="http://evolution-x.org"
-                    title="Evolution-X website">Evolution-X</a></h3>
+              {% for experience in context.experiences %}
+               <div class="work-experience">
+                <small class="date">{{ experience.duration }}</small>
+                <h3 class="h5 date-title"><a style="color: #ff0060;" href="{{ experience.link }}">{{ experience.title }}</a></h3>
 
-                <p> Evolution X is a flashable Custom ROM to bring a true Pixel feel to your Android Device at first
-                  glance, with many additional configurations at your disposal. We aim to provide frequent builds with
-                  monthly security patches from the latest <a href="https://source.android.com/"
-                    target="_blank">AOSP</a> source. As an official maintainer, I am responsible for maintaining Xiaomi
-                  Mi A3.
-                </p>
-              </div>
-
-              <div class="work-experience">
-                <small class="date">Since 2021</small>
-                <h3 class="h5 date-title">Official Maintainer - <a href="http://shrp.github.io"
-                    title="SkyHawk Recovery Project website" target="_blank">SkyHawk Recovery Project</a></h3>
-
-                <p>
-                  Android recovery based on TeamWin Recovery Project with rich UI and Features. As an official
-                  maintainer, I am responsible for maintaining Xiaomi
-                  Mi A3. (currently the updates are on hold because of some encryption issues for non-dynamic
-                  partitions)
-                </p>
-              </div>
-
-              <div class="work-experience">
-                <small class="date">Aug - Sep 2021</small>
-                <h3 class="h5 date-title">Intern at - <a href="http://iete.org/" title="IETE website">IETE</a></h3>
-
-                <p> We covered various topics like: Watermarking on an img, Face Detection and Color Detection in an
-                  Image/Video, Various GUI based image processing systems using appJar (The easiest way to create
-                  GUIs in python) Making graphs using Matplotlib, etc all in python.
-                </p>
-              </div>
+                <p>{{ experience.description }}</p>
+               </div>
+              {% endfor %}
             </div>
           </div>
 
@@ -151,36 +124,19 @@
           <div class="card">
             <div class="card-block">
               <h2>Education</h2>
+            {% for education in context.educations %}
               <div class="row">
                 <div class="col-md-4">
                   <div class="education-experience">
-                    <small class="date">2019 - </small>
-                    <h3 class="h5 date-title">Bachelors in Computer Science and Engineering</h3>
-                    <a href="http://bbsbec.edu.in/" target="_blank">
-                      <p>Baba Banda Singh Bahadur Engineering College, Fatehgarh Sahib</p>
-                    </a>
-                  </div>
-
-                </div>
-                <div class="col-md-4">
-                  <div class="education-experience">
-                    <small class="date">2010 - 2019</small>
-                    <h3 class="h5 date-title">Fourth-Twelth Standard</h3>
-                    <a href="https://no2patiala.kvs.ac.in/" target="_blank">
-                      <p>Kendriya Vidyalaya No.2 Patiala.</p>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="education-experience">
-                    <small class="date">2007 - 2010</small>
-                    <h3 class="h5 date-title">First-Third Standard</h3>
-                    <a href="https://no2ambalacantt.kvs.ac.in/" target="_blank">
-                      <p>Kendriya Vidyalaya No.2 Ambala Cantt.</p>
+                    <small class="date">{{ education.duration }}</small>
+                    <h3 style="margin-bottom: 0%;" class="h5 date-title">{{ education.title }}</h3>
+                    <a href="{{ education.link }}" target="_blank">
+                      <h3 style="color: #ff0060;" class="h5 date-title">{{ education.institute }}, {{ education.location }}</h3>
                     </a>
                   </div>
                 </div>
               </div>
+            {% endfor %}
             </div>
           </div>
 
@@ -191,61 +147,35 @@
 
 
                 <!-- Wrapper for slides -->
+                {% for project in context.projects %}
                 <div class="carousel-inner" role="listbox">
+                  {% if loop.index == 1 %}
                   <div class="item active">
-                    <a href="https://hemant-joke-api.herokuapp.com" target="_blank">
-                      <img
-                        src="https://raw.githubusercontent.com/HemantSachdeva/portfolio/Itz-me/src/static/assets/images/ProjectJokeApi.png"
-                        class="img-responsive" loading="lazy" alt="Joke Api Project Preview">
-                    </a>
-                    <div class="carousel-caption">
-                      <h3 class="h5">Joke Api</h3>
-                      <p>2021</p>
-                    </div>
-                  </div>
+                  {% else %}
                   <div class="item">
-                    <a href="https://github.com/HemantSachdeva/py-scripts/commits/py/count_persons.py" target="_blank">
+                  {% endif %}
+                    <a href={{ project.link }} target="_blank">
                       <img
-                        src="https://raw.githubusercontent.com/HemantSachdeva/portfolio/Itz-me/src/static/assets/images/ProjectPersonCounter.png"
-                        class="img-responsive" alt="Person Counter Preview">
+                        src={{ project.banner }}
+                        class="img-responsive" loading="lazy" alt="{{ project.title }} Preview">
                     </a>
                     <div class="carousel-caption">
-                      <h3 class="h5">Person Counter - OpenCV</h3>
-                      <p>2021</p>
-                    </div>
-                  </div>
-
-                  <div class="item">
-                    <a href="https://github.com/HemantSachdeva/TempMail.git" target="_blank">
-                      <img
-                        src="https://raw.githubusercontent.com/HemantSachdeva/portfolio/Itz-me/src/static/assets/images/ProjectTempMail.png"
-                        class="img-responsive" alt="Temp Mail Project Preview">
-                    </a>
-                    <div class="carousel-caption">
-                      <h3 class="h5">Temp Mail</h3>
-                      <p>2021</p>
-                    </div>
-                  </div>
-
-                  <div class="item">
-                    <a href="https://github.com/HemantSachdeva/WeatherApi" target="_blank">
-                      <img
-                        src="https://raw.githubusercontent.com/HemantSachdeva/portfolio/Itz-me/src/static/assets/images/ProjectWeatherApi.png"
-                        class="img-responsive" alt="Person Counter Preview">
-                    </a>
-                    <div class="carousel-caption">
-                      <h3 class="h5">Weather Api</h3>
-                      <p>2021</p>
+                      <h3 class="h5">{{ project.title }}</h3>
+                      <p>{{ project.year }}</p>
                     </div>
                   </div>
                 </div>
+                {% endfor %}
 
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                  {% for indicator in context.projects %}
+                  {% if loop.index == 1 %}
+                  <li data-target="#carousel-example-generic" data-slide-to="{{ loop.index - 1 }}" class="active"></li>
+                  {% else %}
+                  <li data-target="#carousel-example-generic" data-slide-to="{{ loop.index - 1 }}"></li>
+                  {% endif %}
+                  {% endfor %}
                 </ol>
 
               </div>

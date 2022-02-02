@@ -15,6 +15,7 @@
 
 import os
 import sys
+from src.life import educations, experiences, projects
 
 try:
     from flask import Flask, render_template, request
@@ -41,7 +42,12 @@ def bot_message(data):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    context = {
+        'educations': educations,
+        'projects': projects,
+        'experiences': experiences
+    }
+    return render_template('index.html', context=context)
 
 
 @app.route('/send_message', methods=['POST'])
