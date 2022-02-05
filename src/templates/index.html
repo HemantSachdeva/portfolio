@@ -147,8 +147,8 @@
 
 
                 <!-- Wrapper for slides -->
-                {% for project in context.projects %}
                 <div class="carousel-inner" role="listbox">
+                {% for project in context.projects %}
                   {% if loop.index == 1 %}
                   <div class="item active">
                   {% else %}
@@ -164,8 +164,8 @@
                       <p>{{ project.year }}</p>
                     </div>
                   </div>
-                </div>
                 {% endfor %}
+                </div>
 
                 <!-- Indicators -->
                 <ol class="carousel-indicators">
