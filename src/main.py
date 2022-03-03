@@ -22,7 +22,7 @@ try:
 except ImportError:
     sys.exit("[!] Flask module not found. Install it by 'pip3 install flask'")
 
-app = Flask(__name__)
+application = Flask(__name__)
 
 
 def bot_message(data):
@@ -40,7 +40,7 @@ def bot_message(data):
         f"curl -s -X POST '{url}' -d chat_id={CHAT_ID} -d text='{TEXT_MESSAGE}' -d parse_mode='HTML'")
 
 
-@app.route('/')
+@application.route('/')
 def index():
     context = {
         'educations': educations,
@@ -50,7 +50,7 @@ def index():
     return render_template('index.html', context=context)
 
 
-@app.route('/send_message', methods=['POST'])
+@application.route('/send_message', methods=['POST'])
 def send_message():
     try:
         data = request.form.to_dict()

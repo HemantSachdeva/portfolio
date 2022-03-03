@@ -1,2 +1,2 @@
-web: gunicorn setup:app
+web: gunicorn application:application
 ps:scale worker=1

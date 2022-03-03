@@ -13,7 +13,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-from src.main import app
+from src.main import application
 
 if __name__ == '__main__':
-    app.run()
+    application.run()
